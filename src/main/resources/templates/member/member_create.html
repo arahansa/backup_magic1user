@@ -11,9 +11,14 @@
 
 <div class="content-wrapper" layout:fragment="content_body">
 
-    <form method="post">
-        이름 : <input type="text" name="username"> <br>
-        비밀번호 : <input type="text" name="password"> <br>
+    <form method="post" th:object="${member}">
+        이름 : <input type="text" name="username" th:field="*{username}">
+        <span th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></span>
+        </span>
+        <br>
+        비밀번호 : <input type="text" name="password" th:field="*{password}">
+        <span th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></span>
+        <br>
         <input type="submit">
     </form>
 

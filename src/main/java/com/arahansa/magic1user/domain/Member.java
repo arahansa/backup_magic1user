@@ -2,6 +2,7 @@ package com.arahansa.magic1user.domain;
 
 
 import lombok.Data;
+import org.hibernate.validator.constraints.Length;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.Max;
@@ -11,13 +12,13 @@ import javax.validation.constraints.NotBlank;
 @Data
 public class Member {
 
-    @Min(value=2)
-    @Max(value = 10)
+    @Length(min=2)
+    @Length(max=20)
     @Email
     @NotBlank
     private String username;
 
-    @Min(value=2)
+    @Length(min=2)
     private String password;
 
 }

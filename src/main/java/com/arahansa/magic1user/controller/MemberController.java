@@ -24,6 +24,7 @@ public class MemberController {
     @GetMapping
     public String form(Model model){
         log.debug("member page..");
+        model.addAttribute("member", new Member());
         model.addAttribute("list", memberList);
         return "member/member_create";
     }
