@@ -1,8 +1,10 @@
 package com.arahansa.magic1user.controller;
 
 import com.arahansa.magic1user.domain.Member;
+import com.arahansa.magic1user.service.MemberService;
 import com.sun.org.apache.xpath.internal.operations.Mod;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -21,11 +23,14 @@ public class MemberController {
 
     List<Member> memberList = new ArrayList<>();
 
+    @Autowired
+    MemberService service;
+
     @GetMapping
     public String form(Model model){
         log.debug("member page..");
         model.addAttribute("member", new Member());
-        model.addAttribute("list", memberList);
+        model.addAttribute("list", service.findAll());
         return "member/member_create";
     }
 
@@ -36,7 +41,7 @@ public class MemberController {
             model.addAttribute("member", member);
             return "member/member_create";
         }
-        memberList.add(member);
+        service.save(member);
         return "redirect:/member";
     }
 }
