@@ -17,6 +17,14 @@
         <input type="submit">
     </form>
 
+    <hr>
+
+
+    <div th:each="m : ${list}">
+        이름 : <span th:text="${m.username}"></span> <br>
+        비밀번호 : <span th:text="${m.password}"></span>
+    </div>
+
 </div>
 
 </body>
