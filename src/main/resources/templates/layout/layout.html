@@ -1,19 +1,22 @@
 <!DOCTYPE html>
 <html lang="en"
-      xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      layout:decorate="~{layout/layout}"
 >
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
+<body>
 
-hm????
+레이아웃?
+<nav th:replace="~{layout/nav :: nav}"></nav>
 
 <div class="content-wrapper" layout:fragment="content_body">
-    Hello world!
+ 레이아웃이 들어갈 자리..
 </div>
 
 
+</body>
 </html>
