@@ -7,12 +7,14 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel='stylesheet' th:href="@{/static/css/style.css}">
 </head>
 
-hm????
+
 
 <div class="content-wrapper" layout:fragment="content_body">
-    Hello world!
+    <span>Hello world! </span><span th:text="${name}"></span>
+
 </div>
 
 
