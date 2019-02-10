@@ -1,20 +1,23 @@
 <!DOCTYPE html>
 <html lang="en"
-      xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      layout:decorate="~{layout/layout}"
->
+      layout:decorate="~{layout/layout}">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link rel='stylesheet' th:href="@{/static/css/style.css}">
 </head>
+<body>
 
 <div class="content-wrapper" layout:fragment="content_body">
-    <span>Hello world! </span><span th:text="${name}"></span>
+
+    <form method="post">
+        이름 : <input type="text" name="username"> <br>
+        비밀번호 : <input type="text" name="password"> <br>
+        <input type="submit">
+    </form>
 
 </div>
 
-
+</body>
 </html>
