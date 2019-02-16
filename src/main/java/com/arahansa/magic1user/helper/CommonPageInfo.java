@@ -8,7 +8,7 @@ import java.util.List;
 
 @Data
 public class CommonPageInfo<T> {
-    private int numArticlePerPage = 10; //페이지당 아티클 갯수
+    private int numArticlePerPage = 20; // 페이지당 아티클 갯수였는데 쓸 일이 없어졌다.
     private int numPages = 10; // 페이지 갯수
     private List<?> content;
     // 페이징
@@ -22,8 +22,8 @@ public class CommonPageInfo<T> {
 
     public CommonPageInfo(Page<T> pageBoard) {
         this.numTotalPage = pageBoard.getTotalPages();
-        this.beginPage = pageBoard.getNumber() / numArticlePerPage * numArticlePerPage + 1;
-        this.endPage = (beginPage + numArticlePerPage - 1) > numTotalPage ? numTotalPage : beginPage + numArticlePerPage - 1;
+        this.beginPage = pageBoard.getNumber() / numPages * numPages + 1;
+        this.endPage = (beginPage + numPages - 1) > numTotalPage ? numTotalPage : beginPage + numPages - 1;
         this.content = pageBoard.getContent();
         this.previous = beginPage > numPages;
         this.next = endPage < numTotalPage;
